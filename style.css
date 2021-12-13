@@ -1,0 +1,162 @@
+body,
+html {
+  font-family: "Quicksand", sans-serif;
+  margin: 0;
+  background-color: #eff5f7;
+}
+
+p {
+  margin: 0;
+}
+
+button {
+  cursor: pointer;
+}
+
+.simon-game {
+  width: 100vw;
+  height: 100vh;
+}
+
+.simon-game .simon-game__title {
+  text-align: center;
+  margin: 20px 0;
+  text-transform: uppercase;
+}
+
+.simon-game .simon-game__tiles-container {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[12];
+      grid-template-columns: repeat(12, 1fr);
+  -ms-grid-rows: 200px 200px;
+      grid-template-rows: 200px 200px;
+  -webkit-column-gap: 15px;
+          column-gap: 15px;
+  row-gap: 20px;
+  margin: 40px 0;
+}
+
+.simon-game .simon-game__tiles-container .simon-game__tile {
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+  border: 1px solid #000000;
+  -webkit-transition: background-color 0.15s ease-in;
+  transition: background-color 0.15s ease-in;
+}
+
+.simon-game .simon-game__tiles-container .simon-game__tile:before {
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #000000;
+  opacity: 0.6;
+  border-radius: inherit;
+  -webkit-transform: translate3d(0, 0.7em, -1em);
+          transform: translate3d(0, 0.7em, -1em);
+  outline: none;
+}
+
+.simon-game .simon-game__tiles-container .simon-game__tile:active {
+  -webkit-transform: translate(0em, 0.7em);
+          transform: translate(0em, 0.7em);
+}
+
+.simon-game .simon-game__tiles-container .simon-game__tile:active:before {
+  background-color: transparent;
+}
+
+.simon-game .simon-game__tiles-container .simon-game__tile.tile--red {
+  background-color: #ff6961;
+  -ms-grid-column: 4;
+  -ms-grid-column-span: 3;
+  grid-column: 4 / span 3;
+  -ms-grid-row: 1;
+  -ms-grid-row-span: 1;
+  grid-row: 1 / span 1;
+  border-radius: 100% 0 0 0;
+}
+
+.simon-game .simon-game__tiles-container .simon-game__tile.tile--red:active, .simon-game .simon-game__tiles-container .simon-game__tile.tile--red:hover {
+  background-color: #e20b00;
+}
+
+.simon-game .simon-game__tiles-container .simon-game__tile.tile--green {
+  background-color: #b5ead7;
+  -ms-grid-column: 7;
+  -ms-grid-column-span: 3;
+  grid-column: 7 / span 3;
+  -ms-grid-row: 1;
+  -ms-grid-row-span: 1;
+  grid-row: 1 / span 1;
+  border-radius: 0 100% 0 0;
+}
+
+.simon-game .simon-game__tiles-container .simon-game__tile.tile--green:active, .simon-game .simon-game__tiles-container .simon-game__tile.tile--green:hover {
+  background-color: #16ec9e;
+}
+
+.simon-game .simon-game__tiles-container .simon-game__tile.tile--yellow {
+  background-color: #fdfd96;
+  -ms-grid-column: 4;
+  -ms-grid-column-span: 3;
+  grid-column: 4 / span 3;
+  -ms-grid-row: 2;
+  -ms-grid-row-span: 1;
+  grid-row: 2 / span 1;
+  border-radius: 0 0 0 100%;
+}
+
+.simon-game .simon-game__tiles-container .simon-game__tile.tile--yellow:active, .simon-game .simon-game__tiles-container .simon-game__tile.tile--yellow:hover {
+  background-color: #f1f126;
+}
+
+.simon-game .simon-game__tiles-container .simon-game__tile.tile--blue {
+  background-color: #78a2cc;
+  -ms-grid-column: 7;
+  -ms-grid-column-span: 3;
+  grid-column: 7 / span 3;
+  -ms-grid-row: 2;
+  -ms-grid-row-span: 1;
+  grid-row: 2 / span 1;
+  border-radius: 0 0 100% 0;
+}
+
+.simon-game .simon-game__tiles-container .simon-game__tile.tile--blue:active, .simon-game .simon-game__tiles-container .simon-game__tile.tile--blue:hover {
+  background-color: #238bf3;
+}
+
+.simon-game .simon-game__controllers-container,
+.simon-game .simon-game__info-container {
+  text-align: center;
+}
+
+.simon-game .simon-game__start-button {
+  border: 1px solid #000000;
+  font-size: 20px;
+  text-transform: uppercase;
+  border-radius: 5px;
+  padding: 10px 20px;
+  background-color: #000000;
+  color: #ffffff;
+  opacity: 0.8;
+  -webkit-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+  margin-bottom: 20px;
+}
+
+.simon-game .simon-game__start-button:hover {
+  opacity: 1;
+  -webkit-transform: scale(1.05);
+          transform: scale(1.05);
+}
+
+.simon-game [aria-hidden="true"] {
+  display: none;
+}
+/*# sourceMappingURL=style.css.map */

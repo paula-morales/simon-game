@@ -1,0 +1,151 @@
+$color-grey: #eff5f7;
+$color-black: #000000;
+$color-red: #ff6961;
+$color-green: #b5ead7;
+$color-blue: #78a2cc;
+$color-yellow: #fdfd96;
+$color-red-dark: #e20b00;
+$color-green-dark: #16ec9e;
+$color-blue-dark: #238bf3;
+$color-yellow-dark: #f1f126;
+$color-white: #ffffff;
+
+body,
+html {
+  font-family: "Quicksand", sans-serif;
+  margin: 0;
+  background-color: $color-grey;
+}
+
+p {
+  margin: 0;
+}
+
+button {
+  cursor: pointer;
+}
+
+.simon-game {
+  width: 100vw;
+  height: 100vh;
+
+  .simon-game__title {
+    text-align: center;
+    margin: 20px 0;
+    text-transform: uppercase;
+  }
+
+  .simon-game__tiles-container {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: 200px 200px;
+    column-gap: 15px;
+    row-gap: 20px;
+    margin: 40px 0;
+
+    .simon-game__tile {
+      transform-style: preserve-3d;
+      border: 1px solid $color-black;
+      transition: background-color 0.15s ease-in;
+
+      &:before {
+        position: absolute;
+        content: "";
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: $color-black;
+        opacity: 0.6;
+        border-radius: inherit;
+        transform: translate3d(0, 0.7em, -1em);
+        outline: none;
+      }
+
+      &:active {
+        transform: translate(0em, 0.7em);
+
+        &:before {
+          background-color: transparent;
+        }
+      }
+
+      &.tile--red {
+        background-color: $color-red;
+        grid-column: 4 / span 3;
+        grid-row: 1 / span 1;
+        border-radius: 100% 0 0 0;
+
+        &:active,
+        &:hover {
+          background-color: $color-red-dark;
+        }
+      }
+
+      &.tile--green {
+        background-color: $color-green;
+        grid-column: 7 / span 3;
+        grid-row: 1 / span 1;
+        border-radius: 0 100% 0 0;
+
+        &:active,
+        &:hover {
+          background-color: $color-green-dark;
+        }
+      }
+
+      &.tile--yellow {
+        background-color: $color-yellow;
+        grid-column: 4 / span 3;
+        grid-row: 2 / span 1;
+        border-radius: 0 0 0 100%;
+
+        &:active,
+        &:hover {
+          background-color: $color-yellow-dark;
+        }
+      }
+
+      &.tile--blue {
+        background-color: $color-blue;
+        grid-column: 7 / span 3;
+        grid-row: 2 / span 1;
+        border-radius: 0 0 100% 0;
+
+        &:active,
+        &:hover {
+          background-color: $color-blue-dark;
+        }
+      }
+    }
+  }
+
+  .simon-game__controllers-container,
+  .simon-game__info-container {
+    text-align: center;
+  }
+
+  .simon-game__start-button {
+    border: 1px solid $color-black;
+    font-size: 20px;
+    text-transform: uppercase;
+    border-radius: 5px;
+    padding: 10px 20px;
+    background-color: $color-black;
+    color: $color-white;
+    opacity: 0.8;
+    transition: all 0.5s ease;
+    margin-bottom: 20px;
+
+    &:hover {
+      opacity: 1;
+      transform: scale(1.05);
+    }
+  }
+
+  [aria-hidden="true"] {
+    display: none;
+  }
+}
