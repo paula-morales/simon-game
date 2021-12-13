@@ -43,6 +43,10 @@ button {
     row-gap: 20px;
     margin: 40px 0;
 
+    &.tiles-container--no-clickable {
+      pointer-events: none;
+    }
+
     .simon-game__tile {
       transform-style: preserve-3d;
       border: 1px solid $color-black;
@@ -64,6 +68,7 @@ button {
         outline: none;
       }
 
+      &.active,
       &:active {
         transform: translate(0em, 0.7em);
 
@@ -74,10 +79,11 @@ button {
 
       &.tile--red {
         background-color: $color-red;
-        grid-column: 4 / span 3;
+        grid-column: 5 / span 2;
         grid-row: 1 / span 1;
         border-radius: 100% 0 0 0;
 
+        &.active,
         &:active,
         &:hover {
           background-color: $color-red-dark;
@@ -86,10 +92,11 @@ button {
 
       &.tile--green {
         background-color: $color-green;
-        grid-column: 7 / span 3;
+        grid-column: 7 / span 2;
         grid-row: 1 / span 1;
         border-radius: 0 100% 0 0;
 
+        &.active,
         &:active,
         &:hover {
           background-color: $color-green-dark;
@@ -98,10 +105,11 @@ button {
 
       &.tile--yellow {
         background-color: $color-yellow;
-        grid-column: 4 / span 3;
+        grid-column: 5 / span 2;
         grid-row: 2 / span 1;
         border-radius: 0 0 0 100%;
 
+        &.active,
         &:active,
         &:hover {
           background-color: $color-yellow-dark;
@@ -110,10 +118,11 @@ button {
 
       &.tile--blue {
         background-color: $color-blue;
-        grid-column: 7 / span 3;
+        grid-column: 7 / span 2;
         grid-row: 2 / span 1;
         border-radius: 0 0 100% 0;
 
+        &.active,
         &:active,
         &:hover {
           background-color: $color-blue-dark;
@@ -136,12 +145,26 @@ button {
     background-color: $color-black;
     color: $color-white;
     opacity: 0.8;
-    transition: all 0.5s ease;
+    transition: all 0.3s ease;
     margin-bottom: 20px;
+    user-select: none;
 
     &:hover {
       opacity: 1;
       transform: scale(1.05);
+    }
+
+    &.start-button--hidden {
+      opacity: 0;
+    }
+  }
+
+  .simon-game__info-container {
+    user-select: none;
+    margin: 10px 0;
+
+    .info--hidden {
+      opacity: 0;
     }
   }
 

@@ -7,27 +7,28 @@
     <link rel="stylesheet" href="/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="icon" href="./icon.png" type="image/icon type">
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&display=swap" rel="stylesheet">
     <title>Simon game</title>
 </head>
 <body>
     <div class="simon-game">
-        <h1 class="simon-game__title">Simon game</h1>
-        <section class="simon-game__tiles-container">
+        <h1 class="simon-game__title" data-role='title'>Simon game</h1>
+        <section class="simon-game__tiles-container tiles-container--no-clickable" data-role='tiles-container'>
             <button class="simon-game__tile tile--red" data-color="red" aria-label="red"></button>
             <button class="simon-game__tile tile--green" data-color="green" aria-label="green"></button>
             <button class="simon-game__tile tile--blue" data-color="blue" aria-label="blue"></button>
             <button class="simon-game__tile tile--yellow" data-color="yellow" aria-label="yellow"></button>
         </section>
 
-        <section class="simon-game__controllers-container">
-            <button class="simon-game__start-button" data-role="js-start" aria-label="start game">
-                <p>Start</p>
-            </button>
+        <section class="simon-game__info-container">
+            <p class="simon-game__info info--hidden" data-role="js-info" aria-label="info">Start</p>
         </section>
 
-        <section class="simon-game__info-container">
-            <p class="simon-game__info" data-role="js-start" aria-label="info">Start</p>
+        <section class="simon-game__controllers-container">
+            <button class="simon-game__start-button js-start" data-role="js-start-button" aria-label="start game">
+                <p>Start</p>
+            </button>
         </section>
 
         <div class="simon-game__audios" aria-hidden="true">
@@ -49,5 +50,7 @@
             ></audio>
         </div>
     </div>
+    <script src="./main.js"></script>
+
 </body>
 </html>

@@ -37,6 +37,10 @@ button {
   margin: 40px 0;
 }
 
+.simon-game .simon-game__tiles-container.tiles-container--no-clickable {
+  pointer-events: none;
+}
+
 .simon-game .simon-game__tiles-container .simon-game__tile {
   -webkit-transform-style: preserve-3d;
           transform-style: preserve-3d;
@@ -62,72 +66,72 @@ button {
   outline: none;
 }
 
-.simon-game .simon-game__tiles-container .simon-game__tile:active {
+.simon-game .simon-game__tiles-container .simon-game__tile.active, .simon-game .simon-game__tiles-container .simon-game__tile:active {
   -webkit-transform: translate(0em, 0.7em);
           transform: translate(0em, 0.7em);
 }
 
-.simon-game .simon-game__tiles-container .simon-game__tile:active:before {
+.simon-game .simon-game__tiles-container .simon-game__tile.active:before, .simon-game .simon-game__tiles-container .simon-game__tile:active:before {
   background-color: transparent;
 }
 
 .simon-game .simon-game__tiles-container .simon-game__tile.tile--red {
   background-color: #ff6961;
-  -ms-grid-column: 4;
-  -ms-grid-column-span: 3;
-  grid-column: 4 / span 3;
+  -ms-grid-column: 5;
+  -ms-grid-column-span: 2;
+  grid-column: 5 / span 2;
   -ms-grid-row: 1;
   -ms-grid-row-span: 1;
   grid-row: 1 / span 1;
   border-radius: 100% 0 0 0;
 }
 
-.simon-game .simon-game__tiles-container .simon-game__tile.tile--red:active, .simon-game .simon-game__tiles-container .simon-game__tile.tile--red:hover {
+.simon-game .simon-game__tiles-container .simon-game__tile.tile--red.active, .simon-game .simon-game__tiles-container .simon-game__tile.tile--red:active, .simon-game .simon-game__tiles-container .simon-game__tile.tile--red:hover {
   background-color: #e20b00;
 }
 
 .simon-game .simon-game__tiles-container .simon-game__tile.tile--green {
   background-color: #b5ead7;
   -ms-grid-column: 7;
-  -ms-grid-column-span: 3;
-  grid-column: 7 / span 3;
+  -ms-grid-column-span: 2;
+  grid-column: 7 / span 2;
   -ms-grid-row: 1;
   -ms-grid-row-span: 1;
   grid-row: 1 / span 1;
   border-radius: 0 100% 0 0;
 }
 
-.simon-game .simon-game__tiles-container .simon-game__tile.tile--green:active, .simon-game .simon-game__tiles-container .simon-game__tile.tile--green:hover {
+.simon-game .simon-game__tiles-container .simon-game__tile.tile--green.active, .simon-game .simon-game__tiles-container .simon-game__tile.tile--green:active, .simon-game .simon-game__tiles-container .simon-game__tile.tile--green:hover {
   background-color: #16ec9e;
 }
 
 .simon-game .simon-game__tiles-container .simon-game__tile.tile--yellow {
   background-color: #fdfd96;
-  -ms-grid-column: 4;
-  -ms-grid-column-span: 3;
-  grid-column: 4 / span 3;
+  -ms-grid-column: 5;
+  -ms-grid-column-span: 2;
+  grid-column: 5 / span 2;
   -ms-grid-row: 2;
   -ms-grid-row-span: 1;
   grid-row: 2 / span 1;
   border-radius: 0 0 0 100%;
 }
 
-.simon-game .simon-game__tiles-container .simon-game__tile.tile--yellow:active, .simon-game .simon-game__tiles-container .simon-game__tile.tile--yellow:hover {
+.simon-game .simon-game__tiles-container .simon-game__tile.tile--yellow.active, .simon-game .simon-game__tiles-container .simon-game__tile.tile--yellow:active, .simon-game .simon-game__tiles-container .simon-game__tile.tile--yellow:hover {
   background-color: #f1f126;
 }
 
 .simon-game .simon-game__tiles-container .simon-game__tile.tile--blue {
   background-color: #78a2cc;
   -ms-grid-column: 7;
-  -ms-grid-column-span: 3;
-  grid-column: 7 / span 3;
+  -ms-grid-column-span: 2;
+  grid-column: 7 / span 2;
   -ms-grid-row: 2;
   -ms-grid-row-span: 1;
   grid-row: 2 / span 1;
   border-radius: 0 0 100% 0;
 }
 
-.simon-game .simon-game__tiles-container .simon-game__tile.tile--blue:active, .simon-game .simon-game__tiles-container .simon-game__tile.tile--blue:hover {
+.simon-game .simon-game__tiles-container .simon-game__tile.tile--blue.active, .simon-game .simon-game__tiles-container .simon-game__tile.tile--blue:active, .simon-game .simon-game__tiles-container .simon-game__tile.tile--blue:hover {
   background-color: #238bf3;
 }
 
@@ -145,15 +149,35 @@ button {
   background-color: #000000;
   color: #ffffff;
   opacity: 0.8;
-  -webkit-transition: all 0.5s ease;
-  transition: all 0.5s ease;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
   margin-bottom: 20px;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
 }
 
 .simon-game .simon-game__start-button:hover {
   opacity: 1;
   -webkit-transform: scale(1.05);
           transform: scale(1.05);
+}
+
+.simon-game .simon-game__start-button.start-button--hidden {
+  opacity: 0;
+}
+
+.simon-game .simon-game__info-container {
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  margin: 10px 0;
+}
+
+.simon-game .simon-game__info-container .info--hidden {
+  opacity: 0;
 }
 
 .simon-game [aria-hidden="true"] {
