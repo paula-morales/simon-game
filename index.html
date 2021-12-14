@@ -14,6 +14,13 @@
 <body>
     <div class="simon-game">
         <h1 class="simon-game__title" data-role='title'>Simon game</h1>
+        
+        <section class="simon-game__controllers-container">
+            <button class="simon-game__start-button js-start" data-role="js-start-button" aria-label="start game">
+                <p>Start</p>
+            </button>
+        </section>
+
         <section class="simon-game__tiles-container tiles-container--no-clickable" data-role='tiles-container'>
             <button class="simon-game__tile tile--red" data-color="red" aria-label="red"></button>
             <button class="simon-game__tile tile--green" data-color="green" aria-label="green"></button>
@@ -23,12 +30,6 @@
 
         <section class="simon-game__info-container">
             <p class="simon-game__info info--hidden" data-role="js-info" aria-label="info">Start</p>
-        </section>
-
-        <section class="simon-game__controllers-container">
-            <button class="simon-game__start-button js-start" data-role="js-start-button" aria-label="start game">
-                <p>Start</p>
-            </button>
         </section>
 
         <div class="simon-game__audios" aria-hidden="true">
