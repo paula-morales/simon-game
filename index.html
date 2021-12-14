@@ -14,7 +14,7 @@
 <body>
     <div class="simon-game">
         <h1 class="simon-game__title" data-role='title'>Simon game</h1>
-        
+
         <section class="simon-game__controllers-container">
             <button class="simon-game__start-button js-start" data-role="js-start-button" aria-label="start game">
                 <p>Start</p>
@@ -30,6 +30,17 @@
 
         <section class="simon-game__info-container">
             <p class="simon-game__info info--hidden" data-role="js-info" aria-label="info">Start</p>
+        </section>
+
+        <section class="simon-game__alert-container" data-role="js-alert">
+            <button class="simon-game__alert-close" data-role="js-close-alert" aria-label="close alert">X</button>
+            <p class="simon-game__alert-text"  aria-label="alert"></p>
+            <span class="simon-game__input">
+                <label for="name">Please fill in your name:
+                    <input id="name" type="text" class="simon-game__alert-input" />
+                </label>
+                <button class="simon-game__alert-save" data-role="js-save-name">Save</button>
+            </span>
         </section>
 
         <div class="simon-game__audios" aria-hidden="true">

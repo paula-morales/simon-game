@@ -1,28 +1,34 @@
 let sequence = [];
 let playerSequence = [];
 let level = 0;
+let playerName= '';
 
 const startButton = document.querySelector('[data-role=js-start-button]');
 const info = document.querySelector('[data-role=js-info]');
 const tilesContainer = document.querySelector('[data-role=tiles-container]');
 const headerTitle = document.querySelector('[data-role=title]');
+const alertContainer = document.querySelector('[data-role=js-alert]');
+const alertText = document.querySelector('[data-role=js-alert] p');
+const alertCloseButton = document.querySelector('[data-role=js-close-alert]');
+const alertSaveButton = document.querySelector('[data-role=js-save-name]');
 
 function restartGame(text) {
-    alert(text);
+    alertText.textContent = text
+    alertContainer.classList.remove('simon-game__alert--hidden')
     sequence = [];
     playerSequence = [];
     level = 0;
     startButton.classList.remove('start-button--hidden');
     headerTitle.textContent = 'Simon Game';
-    info.classList.add('info--hidden');
     tilesContainer.classList.add('tiles-container--no-clickable');
+    info.textContent = `Player: ${playerName}`
 }
   
 function playerTurn(level) {
     tilesContainer.classList.remove('tiles-container--no-clickable');
     const remainingTaps = sequence.length - playerSequence.length;
 
-    info.textContent = `Player 1 playing 🎮 ${remainingTaps} remaining tap${remainingTaps > 1 ? 's' : ''}`;
+    info.textContent = `${playerName ? playerName : 'Player 1'} playing 🎮 ${remainingTaps} remaining tap${remainingTaps > 1 ? 's' : ''}`;
 }
 
 function activateTile(color) {
@@ -79,7 +85,7 @@ function handleClick(color) {
     const remainingTaps = sequence.length - playerSequence.length;
 
     if (playerSequence[index] !== sequence[index]) {
-        restartGame('Oops! Game over 🎮❌');
+        restartGame('Oops! Game over 🎮 ❌');
         return;
     }
 
@@ -97,7 +103,7 @@ function handleClick(color) {
         return;
     }
 
-       info.textContent = `Player 1 playing 🎮 ${remainingTaps} remaining tap${remainingTaps > 1 ? 's' : ''}`;
+       info.textContent = `${playerName ? playerName : 'Player 1'} playing 🎮 ${remainingTaps} remaining tap${remainingTaps > 1 ? 's' : ''}`;
 
 }
 
@@ -110,8 +116,23 @@ function startGame() {
   
 startButton.addEventListener('click', startGame);
 
+alertCloseButton.addEventListener('click', event =>{
+    alertContainer.classList.add('simon-game__alert--hidden')
+});
+
+alertSaveButton.addEventListener('click', event =>{
+    alertContainer.classList.add('simon-game__alert--hidden')
+    playerName = document.querySelector('#name').value
+    alertContainer.classList.add('simon-game__input--hidden')
+    if(playerName){
+        info.textContent = `Player: ${playerName}`
+        info.classList.remove('info--hidden');
+    }
+});
+
 tilesContainer.addEventListener('click', event => {
     const { color } = event.target.dataset;
 
     if (color) handleClick(color);
 });
+

@@ -149,7 +149,8 @@ button p {
   grid-column: 1/span 12;
 }
 
-.simon-game .simon-game__start-button {
+.simon-game .simon-game__start-button,
+.simon-game .simon-game__alert-save {
   border: 1px solid #000000;
   font-size: 20px;
   text-transform: uppercase;
@@ -166,14 +167,17 @@ button p {
           user-select: none;
 }
 
-.simon-game .simon-game__start-button:hover {
+.simon-game .simon-game__start-button:hover,
+.simon-game .simon-game__alert-save:hover {
   opacity: 1;
   -webkit-transform: scale(1.05);
           transform: scale(1.05);
 }
 
-.simon-game .simon-game__start-button.start-button--hidden {
-  opacity: 0;
+.simon-game .simon-game__start-button.start-button--hidden,
+.simon-game .simon-game__alert-save.start-button--hidden {
+  pointer-events: none;
+  opacity: 0.3;
 }
 
 .simon-game .simon-game__info-container {
@@ -189,6 +193,61 @@ button p {
 
 .simon-game [aria-hidden="true"] {
   display: none;
+}
+
+.simon-game .simon-game__alert-container {
+  position: fixed;
+  padding: 10px;
+  width: 280px;
+  left: 50%;
+  margin-left: -150px;
+  height: 180px;
+  top: 50%;
+  margin-top: -100px;
+  background: #fff;
+  z-index: 20;
+  -webkit-box-shadow: 0px 0px 0px 9999px rgba(0, 0, 0, 0.5);
+  box-shadow: 0px 0px 0px 9999px rgba(0, 0, 0, 0.5);
+  border-radius: 5px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.simon-game .simon-game__alert-close {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  font-weight: 700;
+  border: 0;
+  background-color: transparent;
+  font-size: 20px;
+}
+
+.simon-game .simon-game__alert--hidden {
+  display: none;
+}
+
+.simon-game .simon-game__input--hidden .simon-game__input {
+  display: none;
+}
+
+.simon-game .simon-game__alert-input {
+  padding: 5px;
+  margin-top: 10px;
+  width: 95%;
+}
+
+.simon-game .simon-game__alert-save {
+  float: right;
+  margin-top: 10px;
+  font-size: 14px;
 }
 
 /* Extra small devices (phones, 600px and down) */
