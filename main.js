@@ -13,6 +13,7 @@ const alertCloseButton = document.querySelector('[data-role=js-close-alert]');
 const alertSaveButton = document.querySelector('[data-role=js-save-name]');
 
 function restartGame(text) {
+    tilesContainer.classList.add('tiles-container--no-clickable');
     alertText.textContent = text
     alertContainer.classList.remove('simon-game__alert--hidden')
     sequence = [];
@@ -20,11 +21,10 @@ function restartGame(text) {
     level = 0;
     startButton.classList.remove('start-button--hidden');
     headerTitle.textContent = 'Simon Game';
-    tilesContainer.classList.add('tiles-container--no-clickable');
     info.textContent = `Player: ${playerName}`
 }
   
-function playerTurn(level) {
+function playerTurn() {
     tilesContainer.classList.remove('tiles-container--no-clickable');
     const remainingTaps = sequence.length - playerSequence.length;
 
@@ -72,7 +72,7 @@ function nextRound() {
 
     sequence = [...nextSequence];
     setTimeout(() => {
-        playerTurn(level);
+        playerTurn();
     }, level * 600 + 1000);
 }
 
@@ -89,6 +89,8 @@ function handleClick(color) {
         return;
     }
 
+    if (remainingTaps===0) tilesContainer.classList.add('tiles-container--no-clickable')
+
     if (playerSequence.length === sequence.length) {
         if (playerSequence.length === 20) {
             restartGame('Congrats! You completed all the levels 🤩');
@@ -103,7 +105,7 @@ function handleClick(color) {
         return;
     }
 
-       info.textContent = `${playerName ? playerName : 'Player 1'} playing 🎮 ${remainingTaps} remaining tap${remainingTaps > 1 ? 's' : ''}`;
+    info.textContent = `${playerName ? playerName : 'Player 1'} playing 🎮 ${remainingTaps} remaining tap${remainingTaps > 1 ? 's' : ''}`;
 
 }
 
@@ -116,15 +118,14 @@ function startGame() {
   
 startButton.addEventListener('click', startGame);
 
-alertCloseButton.addEventListener('click', event =>{
-    alertContainer.classList.add('simon-game__alert--hidden')
+alertCloseButton.addEventListener('click', event => {
+    alertContainer.classList.add('simon-game__alert--hidden', 'simon-game__input--hidden')
 });
 
-alertSaveButton.addEventListener('click', event =>{
-    alertContainer.classList.add('simon-game__alert--hidden')
+alertSaveButton.addEventListener('click', event => {
     playerName = document.querySelector('#name').value
-    alertContainer.classList.add('simon-game__input--hidden')
-    if(playerName){
+    alertContainer.classList.add('simon-game__alert--hidden', 'simon-game__input--hidden')
+    if (playerName){
         info.textContent = `Player: ${playerName}`
         info.classList.remove('info--hidden');
     }
@@ -132,7 +133,7 @@ alertSaveButton.addEventListener('click', event =>{
 
 tilesContainer.addEventListener('click', event => {
     const { color } = event.target.dataset;
-
+    
     if (color) handleClick(color);
 });
 
