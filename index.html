@@ -1,68 +1,113 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="icon" href="./icon.png" type="image/icon type">
-    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&display=swap" rel="stylesheet">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="icon" href="./icon.png" type="image/icon type" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
     <title>Simon game</title>
-</head>
-<body>
+  </head>
+  <body>
     <div class="simon-game">
-        <h1 class="simon-game__title" data-role='title'>Simon game</h1>
+      <h1 class="simon-game__title" data-role="title">Simon game</h1>
 
-        <section class="simon-game__controllers-container">
-            <button class="simon-game__start-button js-start" data-role="js-start-button" aria-label="start game">
-                <p>Start</p>
-            </button>
-        </section>
+      <section class="simon-game__controllers-container">
+        <button
+          class="simon-game__start-button js-start"
+          data-role="js-start-button"
+          aria-label="start game"
+        >
+          <p>Start</p>
+        </button>
+      </section>
 
-        <section class="simon-game__tiles-container tiles-container--no-clickable" data-role='tiles-container'>
-            <button class="simon-game__tile tile--red" data-color="red" aria-label="red"></button>
-            <button class="simon-game__tile tile--green" data-color="green" aria-label="green"></button>
-            <button class="simon-game__tile tile--blue" data-color="blue" aria-label="blue"></button>
-            <button class="simon-game__tile tile--yellow" data-color="yellow" aria-label="yellow"></button>
-        </section>
+      <section
+        class="simon-game__tiles-container tiles-container--no-clickable"
+        data-role="tiles-container"
+      >
+        <button
+          class="simon-game__tile tile--red"
+          data-color="red"
+          aria-label="red"
+        ></button>
+        <button
+          class="simon-game__tile tile--green"
+          data-color="green"
+          aria-label="green"
+        ></button>
+        <button
+          class="simon-game__tile tile--blue"
+          data-color="blue"
+          aria-label="blue"
+        ></button>
+        <button
+          class="simon-game__tile tile--yellow"
+          data-color="yellow"
+          aria-label="yellow"
+        ></button>
+      </section>
 
-        <section class="simon-game__info-container">
-            <p class="simon-game__info info--hidden" data-role="js-info" aria-label="info">Start</p>
-        </section>
+      <section class="simon-game__info-container">
+        <p
+          class="simon-game__info info--hidden"
+          data-role="js-info"
+          aria-label="info"
+        >
+          Start
+        </p>
+      </section>
 
-        <section class="simon-game__alert-container" data-role="js-alert">
-            <button class="simon-game__alert-close" data-role="js-close-alert" aria-label="close alert">X</button>
-            <p class="simon-game__alert-text"  aria-label="alert"></p>
-            <span class="simon-game__input">
-                <label for="name">Please fill in your name:
-                    <input id="name" type="text" class="simon-game__alert-input" />
-                </label>
-                <button class="simon-game__alert-save" data-role="js-save-name">Save</button>
-            </span>
-        </section>
+      <section class="simon-game__alert-container" data-role="js-alert">
+        <button
+          class="simon-game__alert-close"
+          data-role="js-close-alert"
+          aria-label="close alert"
+        >
+          X
+        </button>
+        <p class="simon-game__alert-text" aria-label="alert"></p>
+        <span class="simon-game__input">
+          <label for="name"
+            >Please fill in your name:
+            <input
+              id="name"
+              type="text"
+              class="simon-game__alert-input"
+              data-role="alert-input"
+            />
+          </label>
+          <button class="simon-game__alert-save" data-role="js-save-name">
+            Save
+          </button>
+        </span>
+      </section>
 
-        <div class="simon-game__audios" aria-hidden="true">
-            <audio
-            src="https://s3.amazonaws.com/freecodecamp/simonSound1.mp3"
-            data-sound="red"
-            ></audio>
-            <audio
-            src="https://s3.amazonaws.com/freecodecamp/simonSound2.mp3"
-            data-sound="green"
-            ></audio>
-            <audio
-            src="https://s3.amazonaws.com/freecodecamp/simonSound3.mp3"
-            data-sound="blue"
-            ></audio>
-            <audio
-            src="https://s3.amazonaws.com/freecodecamp/simonSound4.mp3"
-            data-sound="yellow"
-            ></audio>
-        </div>
+      <div class="simon-game__audios" aria-hidden="true">
+        <audio
+          src="https://s3.amazonaws.com/freecodecamp/simonSound1.mp3"
+          data-sound="red"
+        ></audio>
+        <audio
+          src="https://s3.amazonaws.com/freecodecamp/simonSound2.mp3"
+          data-sound="green"
+        ></audio>
+        <audio
+          src="https://s3.amazonaws.com/freecodecamp/simonSound3.mp3"
+          data-sound="blue"
+        ></audio>
+        <audio
+          src="https://s3.amazonaws.com/freecodecamp/simonSound4.mp3"
+          data-sound="yellow"
+        ></audio>
+      </div>
     </div>
     <script src="./main.js"></script>
-
-</body>
+  </body>
 </html>
