@@ -73,7 +73,11 @@
           X
         </button>
         <p class="simon-game__alert-text" aria-label="alert"></p>
-        <span class="simon-game__input">
+        <form
+          class="simon-game__form"
+          onsubmit="onSubmitForm(event)"
+          name="Fill name"
+        >
           <label for="name"
             >Please fill in your name:
             <input
@@ -83,10 +87,14 @@
               data-role="alert-input"
             />
           </label>
-          <button class="simon-game__alert-save" data-role="js-save-name">
+          <button
+            class="simon-game__alert-save"
+            data-role="js-save-name"
+            type="submit"
+          >
             Save
           </button>
-        </span>
+        </form>
       </section>
 
       <div class="simon-game__audios" aria-hidden="true">

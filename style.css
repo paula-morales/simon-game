@@ -234,7 +234,7 @@ button p {
   display: none;
 }
 
-.simon-game .simon-game__input--hidden .simon-game__input {
+.simon-game .simon-game__form--hidden .simon-game__form {
   display: none;
 }
 
